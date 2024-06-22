@@ -4,231 +4,143 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Basis Grotesque Pro";
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-img {
+nav,
+footer {
+  position: fixed;
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+footer {
+  bottom: 0;
+}
+
+.links {
+  display: flex;
+  gap: 2em;
+}
+
+.logo,
+.link,
+footer p {
+  position: relative;
+}
+
+a,
+p {
+  text-decoration: none;
+  color: #fff;
+  font-family: "PP Neue Montreal";
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  width: 30%;
+  position: absolute;
+  left: 50%;
+  bottom: 2em;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.hero-video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.container {
+.blocks {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
-  overflow: hidden;
-}
-
-nav {
-  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 2em;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  z-index: 2;
 }
 
-nav p,
-footer p {
-  color: #fff;
-  font-size: 12px;
-}
-
-nav > div {
+.block {
   flex: 1;
-}
-
-.menu-btn p {
-  width: max-content;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 40px;
-  backdrop-filter: blur(20px);
-  padding: 6px 12px;
-}
-
-.logo {
-  display: flex;
-  justify-content: center;
-}
-
-.local-time {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.logo a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 2em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 2;
-}
-
-.items {
-  position: fixed;
-  width: 30%;
-  height: 100vh;
-  padding: 0 2em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-}
-
-.item {
-  width: max-content;
-  padding: 0.25em 0;
-  cursor: pointer;
-}
-
-.item p {
-  color: #fff;
-  padding: 6px 12px;
-  font-weight: lighter;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 40px;
-  backdrop-filter: blur(20px);
-  transition: 0.3s;
-}
-
-.item:hover p {
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.preview {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-}
-
-.preview-bg {
-  position: absolute;
-  width: 100%;
   height: 100%;
-  opacity: 0.35;
+  background: #000;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
-.preview {
+h1 {
+  font-family: "PP Monument Extended";
+  font-size: 6vw;
+  font-weight: 800;
+  line-height: 100%;
+  color: yellow;
+}
+
+.header {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-item {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  mix-blend-mode: difference;
+}
+
+.header-item h1 {
+  position: relative;
+}
+
+.counter {
+  width: 40px;
+  height: 40px;
   position: absolute;
-  width: 100vw;
-  height: 100vh;
-  color: #fff;
-  z-index: 1;
+  bottom: 6em;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-.preview-title h1 {
-  font-weight: lighter;
-  font-size: 80px;
-}
-
-.preview-tags p,
-.preview-description p {
-  font-size: 14px;
+.counter p {
+  position: relative;
+  font-size: 30px;
+  color: yellow;
   line-height: 120%;
 }
 
-/* variant 1 styles */
-.preview.variant-1 .preview-img {
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  margin: 2em;
-  width: 300px;
-  height: 400px;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-}
+@media (max-width: 900px) {
+  .tagline {
+    width: 80%;
+    bottom: 10em;
+  }
 
-.preview.variant-1 .preview-title {
-  position: absolute;
-  top: 35%;
-  left: 25%;
-}
+  .counter {
+    bottom: 15em;
+  }
 
-.preview.variant-1 .preview-tags {
-  position: absolute;
-  bottom: 25%;
-  right: 40%;
-}
-
-.preview.variant-1 .preview-description {
-  width: 250px;
-  position: absolute;
-  right: 25%;
-  top: 25%;
-}
-
-/* variant 2 styles */
-.preview.variant-2 .preview-img {
-  position: absolute;
-  top: 10%;
-  right: 5%;
-  margin: 2em;
-  width: 300px;
-  height: 400px;
-  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-}
-
-.preview.variant-2 .preview-title {
-  position: absolute;
-  bottom: 30%;
-  left: 50%;
-}
-
-.preview.variant-2 .preview-tags {
-  position: absolute;
-  top: 25%;
-  left: 25%;
-}
-
-.preview.variant-2 .preview-description {
-  width: 250px;
-  position: absolute;
-  right: 10%;
-  bottom: 15%;
-}
-
-/* variant 3 styles */
-.preview.variant-3 .preview-img {
-  position: absolute;
-  bottom: 10%;
-  left: 15%;
-  margin: 2em;
-  width: 300px;
-  height: 400px;
-  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-}
-
-.preview.variant-3 .preview-title {
-  position: absolute;
-  bottom: 40%;
-  right: 15%;
-}
-
-.preview.variant-3 .preview-tags {
-  position: absolute;
-  bottom: 20%;
-  right: 30%;
-}
-
-.preview.variant-3 .preview-description {
-  width: 250px;
-  position: absolute;
-  left: 20%;
-  top: 15%;
+  .block {
+    margin-left: -1px;
+  }
 }
